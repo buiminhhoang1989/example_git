@@ -10,8 +10,9 @@ pipeline {
         }
         stage('Run ') {
           steps {
-            sh '''javac HelloWorld.java
-java HelloWorld'''
+            bat(returnStatus: true, returnStdout: true, script: 'javac HelloWorld.java')
+            bat(script: 'java HelloWorld', returnStatus: true, returnStdout: true)
+            echo 'Run'
           }
         }
       }
