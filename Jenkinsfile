@@ -2,8 +2,18 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        echo 'Build start'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Build start'
+          }
+        }
+        stage('Run ') {
+          steps {
+            sh '''javac HelloWorld.java
+java HelloWorld'''
+          }
+        }
       }
     }
   }
