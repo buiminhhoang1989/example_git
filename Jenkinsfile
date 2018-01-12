@@ -13,9 +13,6 @@ pipeline {
             bat(returnStatus: true, returnStdout: true, script: 'javac HelloWorld.java')
             bat(script: 'java HelloWorld', returnStatus: true, returnStdout: true)
             echo 'Run'
-            sh '''javac HelloWorld.java
-
-java HelloWorld'''
           }
         }
       }
